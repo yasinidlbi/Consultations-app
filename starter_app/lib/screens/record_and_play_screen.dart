@@ -24,15 +24,17 @@ class _RecordAndPlayScreenState extends State<RecordAndPlayScreen> {
   bool isPlayerLoad = false;
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
-
+  int audioCounter = 0;
   Future startRecord() async {
      if (!isRecorderReady) return;
      isPlayerLoad = false;
-    // setState(() {
-    //   position = Duration.zero;
-    //   duration = Duration.zero;
-    // });
-    await recorder.startRecorder(toFile: 'audio');
+    setState(() {
+      position = Duration.zero;
+      duration = Duration.zero;
+    });
+     audioCounter++;
+    await recorder.startRecorder(toFile: 'audio_$audioCounter');
+
   }
 
   Future stopRecord() async {
