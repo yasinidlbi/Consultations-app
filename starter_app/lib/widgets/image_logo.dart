@@ -23,7 +23,7 @@ class ImageLogo extends StatelessWidget {
               padding: const EdgeInsets.all(25),
               child: Image(
                 image: AssetImage('assets/images/logo.png'),
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.fitHeight,
               ),
             ),
           ),

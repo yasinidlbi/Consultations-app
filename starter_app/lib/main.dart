@@ -5,6 +5,7 @@ import 'screens/player_audio_screen.dart';
 import 'screens/record_screen.dart';
 import 'screens/record_and_play_screen.dart';
 import 'screens/service_screen.dart';
+import 'screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
       ),
       routes: {
         //   // When navigating to the "/" route, build the FirstScreen widget.
+        '/splashScreen': (context) => const SplashScreen(),
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const HomeScreen(),
         '/service': (context) => const ServiceScreen(),
@@ -33,7 +35,8 @@ class MyApp extends StatelessWidget {
         //   // When navigating to the "/second" route, build the SecondScreen widget.
         //   '/order/profile': (context) => const ProfileScreen(),
       },
-      home:  LoginScreen(),
+      // home:  LoginScreen(),
+      home:  SplashScreen(),
     );
   }
 }
