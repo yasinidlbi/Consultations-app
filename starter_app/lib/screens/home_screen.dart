@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../mystyle/constants.dart';
+import '../mystyle/constantsColors.dart';
 import '../mystyle/text_style.dart';
 import '../widgets/image_square.dart';
 import './record_screen.dart';

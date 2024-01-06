@@ -7,7 +7,7 @@ ButtonStyle bs_flatFill(BuildContext context)
       backgroundColor: MaterialStateProperty.all(Theme.of(context).primaryColor),
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
+            borderRadius: BorderRadius.circular(25.0),
             side: BorderSide(color: Theme.of(context).primaryColor),
           )
       )

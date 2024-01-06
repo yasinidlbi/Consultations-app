@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './screens/login_screen.dart';
+import 'mystyle/constantsColors.dart';
+import 'screens/login/login_screen.dart';
 import './screens/home_screen.dart';
 import 'screens/player_audio_screen.dart';
 import 'screens/record_screen.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: myprimercolor,
+        scaffoldBackgroundColor: Colors.grey[100],
       ),
       routes: {
         //   // When navigating to the "/" route, build the FirstScreen widget.
