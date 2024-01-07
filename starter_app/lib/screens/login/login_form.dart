@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 
+import '../../models/country.dart';
 import '../../mystyle/button_style.dart';
 import '../../mystyle/constantsColors.dart';
 import '../../mystyle/text_style.dart';
@@ -19,6 +20,26 @@ class _LoginFormState extends State<LoginForm> {
   final userPassController = TextEditingController();
   bool isLoading = false;
 
+  List<Country> listCountry = <Country>[];
+  late Country _selectedCountry;
+   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    //
+    Country.readJson()
+        .then((response) => {
+      // print(response),
+
+      setState(() {
+      listCountry = response;
+      _selectedCountry = listCountry.first;
+      }),
+      // print( listCountry[0].name)
+    }
+    );
+
+  }
   @override
   void dispose() {
     // Clean up the controller when the widget is disposed.
@@ -47,6 +68,39 @@ class _LoginFormState extends State<LoginForm> {
             Divider(
                 color: Colors.grey
             ),
+
+
+            DropdownButton<Country>(
+              //isDense: true,
+              hint: Text('Choose'),
+              value: _selectedCountry,
+              icon: Icon(Icons.arrow_drop_down),
+              iconSize: 24,
+              elevation: 16,
+              style: TextStyle(color: Colors.grey),
+              underline: Container(
+                height: 2,
+                color: Colors.grey,
+              ),
+              onChanged: (Country? newValue) {
+                setState(() {
+                  _selectedCountry = newValue!;
+                });
+              },
+              items:
+              listCountry.map<DropdownMenuItem<Country>>((Country value) {
+                return DropdownMenuItem<Country>(
+                  value: value,
+                  child: Text(value.name!),
+                );
+              }).toList(),
+            ),
+
+
+
+
+
+
             Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
                 child: TextFormField(
@@ -108,7 +162,7 @@ class _LoginFormState extends State<LoginForm> {
                     ),
                     style: bs_flatFill(context),
                     // onPressed: () {},
-                    onPressed: () =>
+                    onPressed: () async =>
                     {
 
                       if (_formKey.currentState!.validate())
@@ -161,6 +215,8 @@ class _LoginFormState extends State<LoginForm> {
                           context,
                           MaterialPageRoute(
                               builder: (_) => HomeScreen())),
+
+
 
 
                     }
