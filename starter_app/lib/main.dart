@@ -23,8 +23,20 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+
+        // Define the default brightness and colors.
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: myprimercolor,
+          // brightness: Brightness.light,
+        ),
+
+
         primarySwatch: myprimercolor,
         scaffoldBackgroundColor: Colors.grey[100],
+          // buttonTheme: ButtonThemeData(
+          //   buttonColor: myprimercolor,         //  <-- light color
+          //   textTheme: ButtonTextTheme.primary, //  <-- dark text for light background
+          // )
       ),
       routes: {
         //   // When navigating to the "/" route, build the FirstScreen widget.
