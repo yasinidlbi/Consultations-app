@@ -14,7 +14,13 @@ class ServiceScreen extends StatefulWidget {
 class _ServiceScreenState extends State<ServiceScreen> {
   // final controller = PageController(viewportFraction: 0.8, keepPage: true);
   final controller = PageController(viewportFraction: 0.7, keepPage: true);
-
+  List<Service> serviceList = [
+    Service(name: "Service_1", desc: "desc", image: "https://picsum.photos/200/300?random=1", favorite: false),
+    Service(name: "Service_2", desc: "desc", image: "https://picsum.photos/200/300?random=2", favorite: true),
+    Service(name: "Service_3", desc: "desc", image: "https://picsum.photos/200/300?random=3", favorite: false),
+    Service(name: "Service_4", desc: "desc", image: "https://picsum.photos/200/300?random=4", favorite: true),
+    Service(name: "Service_5", desc: "desc", image: "https://picsum.photos/200/300?random=5", favorite: false),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -24,15 +30,6 @@ class _ServiceScreenState extends State<ServiceScreen> {
         - MediaQuery.of(context).padding.top // safe area
         - AppBar().preferredSize.height //AppBar
     );
-
-
-    List<Service> serviceList = [
-      Service(name: "Service_1", desc: "desc", image: "https://picsum.photos/200/300?random=1"),
-      Service(name: "Service_2", desc: "desc", image: "https://picsum.photos/200/300?random=2"),
-      Service(name: "Service_3", desc: "desc", image: "https://picsum.photos/200/300?random=3"),
-      Service(name: "Service_4", desc: "desc", image: "https://picsum.photos/200/300?random=4"),
-      Service(name: "Service_5", desc: "desc", image: "https://picsum.photos/200/300?random=5"),
-    ];
 
 
     final pages = List.generate(
@@ -75,7 +72,7 @@ class _ServiceScreenState extends State<ServiceScreen> {
                     right: 5,
                     bottom: 35,
                     child: ElevatedButton(
-                      child: Icon(Icons.favorite ,
+                      child: Icon( serviceList[index].favorite!? Icons.favorite : Icons.favorite_border,
                         color: mysecondarycolor
                         , size: 35,),
                       style: ElevatedButton.styleFrom(
@@ -84,7 +81,11 @@ class _ServiceScreenState extends State<ServiceScreen> {
                         backgroundColor: Colors.white, // <-- Button color
                         // foregroundColor: Colors.red, // <-- Splash color
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        setState(() {
+                          serviceList[index].favorite = serviceList[index].favorite!? false: true;
+                        });
+                      },
                     ),
                   ),
                 ],
@@ -177,6 +178,7 @@ class Service{
   String? name;
   String? desc;
   String? image;
+  bool? favorite;
 
-  Service({this.name, this.desc, this.image});
+  Service({this.name, this.desc, this.image, this.favorite});
 }
