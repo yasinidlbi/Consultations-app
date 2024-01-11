@@ -6,6 +6,7 @@ import '../home_screen.dart';
 
 import '../../mystyle/button_style.dart';
 import '../../mystyle/constantsColors.dart';
+import '../main_navigation_screen.dart';
 
 class LoginVerificationScreen extends StatefulWidget {
   const LoginVerificationScreen({Key? key}) : super(key: key);
@@ -288,7 +289,7 @@ class _LoginVerificationScreenState extends State<LoginVerificationScreen> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (_) => HomeScreen()));
+                            builder: (_) => MainNavigationScreen()));
 
 
                   },

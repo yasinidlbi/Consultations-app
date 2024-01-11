@@ -26,12 +26,12 @@ class MyApp extends StatelessWidget {
 
         // Define the default brightness and colors.
         colorScheme: ColorScheme.fromSeed(
-          seedColor: myprimercolor,
+          seedColor: mysecondarycolor,
           // brightness: Brightness.light,
         ),
 
 
-        primarySwatch: myprimercolor,
+        primarySwatch: mysecondarycolor,
         scaffoldBackgroundColor: Colors.grey[100],
           // buttonTheme: ButtonThemeData(
           //   buttonColor: myprimercolor,         //  <-- light color
