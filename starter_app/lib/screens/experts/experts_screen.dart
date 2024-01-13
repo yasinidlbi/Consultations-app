@@ -11,7 +11,7 @@ class ExpertsScreen extends StatefulWidget {
 }
 
 class _ExpertsScreenState extends State<ExpertsScreen> {
-  String _selectedService = "Servic_1";
+  String _selectedService = "Service_1";
   List<Service> serviceList = [
     Service(
         name: "Service_1",
@@ -131,9 +131,9 @@ class _ExpertsScreenState extends State<ExpertsScreen> {
 
 
 
-    _buildServices() {
+    _buildServices(List<Service> services) {
       List<Widget> serviceWidgetList = [];
-      serviceList.forEach((Service service) {
+      services.forEach((Service service) {
         serviceWidgetList.add(
           GestureDetector(
             onTap: () {
@@ -174,139 +174,92 @@ class _ExpertsScreenState extends State<ExpertsScreen> {
         children: serviceWidgetList,
       );
     }
-    _buildExperts(Expert expert){
-      return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _selectedExpert = expert.name!;
-                      print(_selectedExpert);
-                    });
-                  },
-                  child:Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: myprimercolor,width: 2),
-                      borderRadius: BorderRadius.circular(35),
-                      color: Colors.white,
-                    ),
-                    margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                    child: Stack(
-                      children: [
-                        Column(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                width: double.maxFinite,
-                                // height: height,
-                                child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(35),
-                                  child: Image(
-                                    image:NetworkImage(expert.image!),
-                                    fit: BoxFit.fitWidth,
+    _buildExperts(List<Expert> experts){
+     return GridView.count(
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          crossAxisCount: 2,
+          children:
+          List.generate(experts.length,
+                  (index)  {
+                Expert expert= experts[index];
+                return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _selectedExpert = expert.name!;
+                        print(_selectedExpert);
+                      });
+                    },
+                    child:Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(color: myprimercolor,width: 2),
+                        borderRadius: BorderRadius.circular(35),
+                        color: Colors.white,
+                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                      child: Stack(
+                        children: [
+                          Column(
+                            children: [
+                              Expanded(
+                                child: Container(
+                                  width: double.maxFinite,
+                                  // height: height,
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(35),
+                                    child: Image(
+                                      image:NetworkImage(expert.image!),
+                                      fit: BoxFit.fitWidth,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.symmetric(vertical: 10),
+                                child: Text(expert.name!,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    color: Colors.grey,
+                                    // fontWeight: FontWeight.bold
+                                  ),),
+                              )
+                            ],
+                          ),
+
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            child:
+                            GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  expert.favorite = expert.favorite!? false: true;
+                                  print(expert.favorite);
+                                });
+                              },
+                              child:ClipRRect(
+                                borderRadius: BorderRadius.only(topLeft: Radius.circular( 30.0),bottomRight: Radius.circular( 15.0)),
+                                child: Container(
+                                  color: myprimercolor,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Icon( expert.favorite!? Icons.favorite : Icons.favorite_border,
+                                      color: Colors.white
+                                      , size: 25,),
                                   ),
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
-                              child: Text(expert.name!,
-                                style: TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.grey,
-                                    // fontWeight: FontWeight.bold
-                                ),),
-                            )
-                          ],
-                        ),
-
-                        Positioned(
-                          top: 0,
-                          left: 0,
-                          child:
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                expert.favorite = expert.favorite!? false: true;
-                                print(_selectedExpert);
-                              });
-                            },
-                            child:ClipRRect(
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular( 30.0),bottomRight: Radius.circular( 15.0)),
-                              child: Container(
-                                color: myprimercolor,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon( expert.favorite!? Icons.favorite : Icons.favorite_border,
-                                   color: Colors.white
-                                   , size: 25,),
-                                ),
-                              ),
-                            ),
                           ),
-                          // ElevatedButton(
-                          //   child: Icon( expert.favorite!? Icons.favorite : Icons.favorite_border,
-                          //     color: mysecondarycolor
-                          //     , size: 35,),
-                          //   style: ElevatedButton.styleFrom(
-                          //     shape: CircleBorder(),
-                          //     padding: EdgeInsets.all(5),
-                          //     backgroundColor: Colors.white, // <-- Button color
-                          //     // foregroundColor: Colors.red, // <-- Splash color
-                          //   ),
-                          //   onPressed: () {
-                          //     setState(() {
-                          //       expert.favorite = expert.favorite!? false: true;
-                          //     });
-                          //   },
-                          // ),
-                        ),
-                      ],
-                    ),
-                  )
+                        ],
+                      ),
+                    )
                 );
+              }
+          )
+      );
+
     }
-    // _buildExperts() {
-    //   List<Widget> expertWidgetList = [];
-    //   expertList.forEach((Expert expert) {
-    //     expertWidgetList.add(
-    //       GestureDetector(
-    //         onTap: () {
-    //           setState(() {
-    //             _selectedExpert = expert.name!;
-    //             print(_selectedExpert);
-    //           });
-    //         },
-    //         child: Padding(
-    //           padding: const EdgeInsets.all(10),
-    //           child: Column(
-    //             children: [
-    //               Container(
-    //                 decoration: BoxDecoration(
-    //                   border: Border(
-    //                     bottom: BorderSide(
-    //                         width: 3,
-    //                         color: _selectedExpert == expert.name
-    //                             ? mysecondarycolor
-    //                             : Colors.transparent),
-    //                   ),
-    //                 ),
-    //                 child: Text(
-    //                   expert.name!,
-    //                   style: TextStyle(
-    //                       fontSize: 18,
-    //                       color: Colors.white,
-    //                       fontWeight: FontWeight.bold),
-    //                 ),
-    //               ),
-    //             ],
-    //           ),
-    //         ),
-    //       ),
-    //     );
-    //   });
-    //   return Column(
-    //     children: expertWidgetList,
-    //   );
-    // }
+
 
     return Scaffold(
       // appBar: AppBar(
@@ -341,7 +294,7 @@ class _ExpertsScreenState extends State<ExpertsScreen> {
                             "Experts",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
-                                fontSize: 24,
+                                fontSize: 28,
                                 color: mysecondarycolor),
                           ),
                         ),
@@ -374,32 +327,18 @@ class _ExpertsScreenState extends State<ExpertsScreen> {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 20),
-                      child: _buildServices(),
+                      child: _buildServices(serviceList),
                     ),
                   ),
                 ],
               ),
             ),
           ),
-          // Expanded(
-          //   child:Padding(
-          //         padding:
-          //             const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-          //         child: _buildExperts()),
-          //   ),
+          SizedBox(height: 10,),
           Expanded(
-            child: GridView.count(
-                padding: EdgeInsets.all(10.0),
-                crossAxisCount: 2,
-                children:
-                List.generate(expertList.length,
-                        (index)  {
-                      Expert expert= expertList[index];
-                      return _buildExperts(expert);
-                    }
-                )
-            ),
-          )
+            child:_buildExperts(expertList!)
+          ),
+          SizedBox(height: 10,),
 
         ],
       ),
