@@ -6,7 +6,7 @@ import '../widgets/image_square.dart';
 import './record/record_screen.dart';
 import 'record/player_audio_screen.dart';
 import 'record/record_and_play_screen.dart';
-import 'service_screen.dart';
+import 'sercice/service_screen.dart';
 
 
 class HomeScreen extends StatefulWidget {

@@ -7,7 +7,7 @@ import './screens/home_screen.dart';
 import 'screens/record/player_audio_screen.dart';
 import 'screens/record/record_screen.dart';
 import 'screens/record/record_and_play_screen.dart';
-import 'screens/service_screen.dart';
+import 'screens/sercice/service_screen.dart';
 import 'screens/splash_screen.dart';
 
 void main() {
