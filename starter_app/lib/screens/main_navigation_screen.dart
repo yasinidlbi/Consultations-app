@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:starter_app/screens/player_audio_screen.dart';
-import 'package:starter_app/screens/record_and_play_screen.dart';
-import 'package:starter_app/screens/record_screen.dart';
+import 'package:starter_app/screens/record/player_audio_screen.dart';
+import 'package:starter_app/screens/record/record_and_play_screen.dart';
+import 'package:starter_app/screens/record/record_screen.dart';
 import 'package:starter_app/screens/service_screen.dart';
 
+import 'experts/experts_screen.dart';
 import 'home_screen.dart';
 
 
@@ -27,6 +28,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     const List<Widget> _pages = <Widget>[
       HomeScreen(),
       ServiceScreen(),
+      ExpertsScreen(),
     ];
     return Scaffold(
       // appBar: AppBar(
@@ -48,7 +50,10 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
             icon: Icon(Icons.account_circle,size: 35) ,
             label: 'sercice',
           ),
-
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people,size: 35) ,
+            label: 'experts',
+          ),
         ],
       ),
     );

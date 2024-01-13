@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import '../mystyle/constantsColors.dart';
 import '../mystyle/text_style.dart';
 import '../widgets/image_square.dart';
-import './record_screen.dart';
-import './player_audio_screen.dart';
-import 'record_and_play_screen.dart';
+import './record/record_screen.dart';
+import 'record/player_audio_screen.dart';
+import 'record/record_and_play_screen.dart';
 import 'service_screen.dart';
 
 

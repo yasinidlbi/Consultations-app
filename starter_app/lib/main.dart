@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'mystyle/constantsColors.dart';
+import 'screens/experts/experts_screen.dart';
 import 'screens/login/login_screen.dart';
 import 'screens/login/login_verification_screen.dart';
 import './screens/home_screen.dart';
-import 'screens/player_audio_screen.dart';
-import 'screens/record_screen.dart';
-import 'screens/record_and_play_screen.dart';
+import 'screens/record/player_audio_screen.dart';
+import 'screens/record/record_screen.dart';
+import 'screens/record/record_and_play_screen.dart';
 import 'screens/service_screen.dart';
 import 'screens/splash_screen.dart';
 
@@ -44,10 +45,11 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/home': (context) => const HomeScreen(),
         '/service': (context) => const ServiceScreen(),
+        '/experts': (context) => const ExpertsScreen(),
         '/record': (context) => const RecordScreen(),
         '/playerAudio': (context) => const PlayerAudioScreen(),
         '/recordAndPlay': (context) => const RecordAndPlayScreen(),
-        '/LoginVerification': (context) => const LoginVerificationScreen(),
+        '/loginVerification': (context) => const LoginVerificationScreen(),
 
         //   // When navigating to the "/second" route, build the SecondScreen widget.
         //   '/order/profile': (context) => const ProfileScreen(),
