@@ -98,6 +98,8 @@ class _LoginFormState extends State<LoginForm> {
                     );
                   }).toList(),
                   decoration: InputDecoration(
+                      errorStyle: TextStyle(fontSize: 0),
+
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(25.0),
                       ),
@@ -123,6 +125,8 @@ class _LoginFormState extends State<LoginForm> {
                       return null;
                     },
                     decoration: InputDecoration(
+                      errorStyle: TextStyle(fontSize: 0),
+
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(25.0),
                         ),

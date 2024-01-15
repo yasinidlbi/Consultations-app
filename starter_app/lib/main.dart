@@ -4,6 +4,7 @@ import 'screens/experts/experts_screen.dart';
 import 'screens/login/login_screen.dart';
 import 'screens/login/login_verification_screen.dart';
 import './screens/home_screen.dart';
+import 'screens/profile/profile_screen.dart';
 import 'screens/record/player_audio_screen.dart';
 import 'screens/record/record_screen.dart';
 import 'screens/record/record_and_play_screen.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomeScreen(),
         '/service': (context) => const ServiceScreen(),
         '/experts': (context) => const ExpertsScreen(),
+        '/profile': (context) => const ProfileScreen(),
         '/record': (context) => const RecordScreen(),
         '/playerAudio': (context) => const PlayerAudioScreen(),
         '/recordAndPlay': (context) => const RecordAndPlayScreen(),

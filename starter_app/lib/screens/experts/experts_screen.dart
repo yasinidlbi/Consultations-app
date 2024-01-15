@@ -39,7 +39,6 @@ class _ExpertsScreenState extends State<ExpertsScreen> {
         image: "https://picsum.photos/200/300?random=5",
         favorite: false),
   ];
-
   String _selectedExpert = "Expert_1";
   List<Expert> expertList = [
     Expert(
@@ -70,52 +69,52 @@ class _ExpertsScreenState extends State<ExpertsScreen> {
     Expert(
         name: "Expert_6",
         desc: "desc",
-        image: "https://picsum.photos/200/300?random=1",
+        image: "https://picsum.photos/200/300?random=6",
         favorite: false),
     Expert(
         name: "Expert_7",
         desc: "desc",
-        image: "https://picsum.photos/200/300?random=2",
+        image: "https://picsum.photos/200/300?random=7",
         favorite: true),
     Expert(
         name: "Expert_8",
         desc: "desc",
-        image: "https://picsum.photos/200/300?random=3",
+        image: "https://picsum.photos/200/300?random=8",
         favorite: false),
     Expert(
         name: "Expert_9",
         desc: "desc",
-        image: "https://picsum.photos/200/300?random=4",
+        image: "https://picsum.photos/200/300?random=9",
         favorite: true),
     Expert(
         name: "Expert_10",
         desc: "desc",
-        image: "https://picsum.photos/200/300?random=5",
+        image: "https://picsum.photos/200/300?random=10",
         favorite: false),
     Expert(
         name: "Expert_11",
         desc: "desc",
-        image: "https://picsum.photos/200/300?random=1",
+        image: "https://picsum.photos/200/300?random=11",
         favorite: false),
     Expert(
         name: "Expert_12",
         desc: "desc",
-        image: "https://picsum.photos/200/300?random=2",
+        image: "https://picsum.photos/200/300?random=12",
         favorite: true),
     Expert(
         name: "Expert_13",
         desc: "desc",
-        image: "https://picsum.photos/200/300?random=3",
+        image: "https://picsum.photos/200/300?random=13",
         favorite: false),
     Expert(
         name: "Expert_14",
         desc: "desc",
-        image: "https://picsum.photos/200/300?random=4",
+        image: "https://picsum.photos/200/300?random=14",
         favorite: true),
     Expert(
         name: "Expert_15",
         desc: "desc",
-        image: "https://picsum.photos/200/300?random=5",
+        image: "https://picsum.photos/200/300?random=15",
         favorite: false),
   ];
 
